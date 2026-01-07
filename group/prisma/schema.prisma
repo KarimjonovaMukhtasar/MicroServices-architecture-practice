@@ -1,0 +1,20 @@
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Group {
+  id          String  @default(uuid()) @id
+  name        String  @unique
+  startDate   DateTime  
+  endDate     DateTime
+  createdAt   DateTime   @default(now())  @db.Timestamptz(6)
+  updatedAt   DateTime   @updatedAt   @db.Timestamptz(6)
+
+  @@map("groups")
+}
