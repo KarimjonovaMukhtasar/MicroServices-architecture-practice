@@ -7,13 +7,13 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: ['amqp://localhost:5672'],
-      queue: "group_queue",
+      queue: "student_queue",
       queueOptions: {
         durable: true
       }
     }
   });
-  console.log('Group server')
+  console.log('Student server')
   await app.listen();
 }
 bootstrap();

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { ClientProxy, MessagePattern } from "@nestjs/microservices";
+import { ClientProxy } from "@nestjs/microservices";
 
 @Controller()
 export class GroupController{

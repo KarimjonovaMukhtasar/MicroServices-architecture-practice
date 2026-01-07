@@ -1,0 +1,20 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Student {
+  id          String  @default(uuid()) @id
+  name        String  
+  age         Int  
+  status      Boolean
+  field       String
+
+  @@map("students")
+}
+
+
