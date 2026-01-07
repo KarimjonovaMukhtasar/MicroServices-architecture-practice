@@ -14,20 +14,22 @@ export class AppController {
   @MessagePattern('teacher-get')
   async getTeachers(){
     console.log('Teacher server is running successfully!')
-    const teachers = await this.
+    const teachers = await this.teacherModel.find()
     return {
       success: true,
-      data: 'SUCCESSFUL!'
+      message: 'SUCCESSFULLY RETRIEVED FROM TEACHERS DATABASE!',
+      data: teachers
     };
   }
 
   @MessagePattern('teacher-create')
-  createTeacher(payload: {name: string, age: number, profession: string, status: boolean}){
-    console.log(21, 'Teacher server is running successfully!')
-
+  async createTeacher(payload: {name: string, age: number, profession: string, status: boolean}){
+    console.log('Teacher server is running successfully!')
+    const newTeacher = await this.teacherModel.create({...payload})
     return {
       success: true,
-      data: 'SUCCESSFUL!'
+      message: 'SUCCESSFULLY CREATED A NEW TEACHER TO THE DATABASE!',
+      data: newTeacher
     };
   }
 }
